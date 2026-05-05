@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -30,6 +32,10 @@ public class Usuario {
     @Builder.Default
     private BigDecimal balanceInicial = BigDecimal.ZERO;
 
+    @Column(name = "presupuesto_mensual", nullable = false)
+    @Builder.Default
+    private BigDecimal presupuestoMensual = BigDecimal.ZERO;
+
     @Column(name = "codigo_recuperacion")
     private String codigoRecuperacion;
 
@@ -39,11 +45,18 @@ public class Usuario {
     @Column(name = "fecha_registro")
     private LocalDateTime fechaRegistro;
 
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @Builder.Default
+    private List<Categoria> categorias = new ArrayList<>();
+
     @PrePersist
     public void prePersist() {
         this.fechaRegistro = LocalDateTime.now();
         if (this.balanceInicial == null) {
             this.balanceInicial = BigDecimal.ZERO;
+        }
+        if (this.presupuestoMensual == null) {
+            this.presupuestoMensual = BigDecimal.ZERO;
         }
     }
 }
