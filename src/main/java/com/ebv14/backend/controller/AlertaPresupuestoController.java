@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/alertas")
-@CrossOrigin(origins = "https://financial-management-frontend-rho.vercel.app")
 public class AlertaPresupuestoController {
 
     private final AlertaPresupuestoService alertaService;

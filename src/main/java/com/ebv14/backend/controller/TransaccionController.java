@@ -1,5 +1,5 @@
 package com.ebv14.backend.controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 import com.ebv14.backend.dto.TransaccionDTO.*;
 import com.ebv14.backend.service.TransaccionService;
 import jakarta.validation.Valid;
@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/transactions")
-@CrossOrigin(origins = "https://financial-management-frontend-rho.vercel.app")
 public class TransaccionController {
 
     private final TransaccionService transaccionService;
