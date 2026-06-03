@@ -1,5 +1,6 @@
 package com.ebv14.backend.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.ebv14.backend.dto.AuthDTO.*;
 import com.ebv14.backend.service.AuthService;
 import jakarta.validation.Valid;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin(origins = "https://financial-management-frontend-rho.vercel.app")
 public class AuthController {
 
     private final AuthService authService;
