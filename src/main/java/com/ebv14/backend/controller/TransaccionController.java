@@ -8,9 +8,11 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/api/transactions")
+@CrossOrigin(origins = "https://financial-management-frontend-rho.vercel.app")
 public class TransaccionController {
 
     private final TransaccionService transaccionService;
